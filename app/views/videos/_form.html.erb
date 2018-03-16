@@ -1,0 +1,29 @@
+<%= form_for(@video) do |f| %>
+  <% if @video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+      <% @video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-field col s12">
+    <%= f.text_field :wistia, :length => '20' %>
+     <label for="wistia">Link</label>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_field :title, :length => '20' %>
+    <label for="title">Title</label>
+  </div>
+  <div class="input-field col s12">
+    <%= f.text_area :description,:length => "10", :class => 'materialize-textarea' %>
+  <label for="description">Description</label>
+  </div>
+  <button class="waves-effect waves-light btn" type="Submit" name="action">Submit</button>
+  <a href="<%= videos_path %>" class="btn waves-effect wave-light" name="action">Back</a>
+ 
+<% end %>
