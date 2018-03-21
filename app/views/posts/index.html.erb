@@ -1,0 +1,51 @@
+
+<%= render "header" %>
+
+<p id="notice"><%= notice %></p>
+
+  <h1>Listing Posts</h1>
+     <% @posts.each do |post| %>
+     <div class="Card z-dept-5">
+         
+         
+        <div class="col m12">
+          
+            <div class="card-panel grey lighten-5 z-dept">
+              
+                <div class="row valign-warpper">
+                  
+                  
+                    <div class="col m12">
+                        
+                <%= image_tag post.image.url(:medium) %>
+           <h5 class="card-title" ><%= post.title %></h5>
+        
+        <span class="black-text">
+             <%= post.body %>
+        </span>
+        
+        </br>
+         
+        <%= link_to 'Show', post %>
+       
+        <%= link_to 'Edit', edit_post_path(post) %>
+        
+        <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+      </div>
+     
+    </div>
+      
+  </div>
+  
+  </div>
+  
+  </div>
+ <% end %>
+  
+     
+    
+    </br>
+
+</hr>
+<a href="/posts/new"><button type="button" class="btn btn-primary btn-sm">Add Post</button></a>
